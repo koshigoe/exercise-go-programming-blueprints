@@ -7,8 +7,6 @@ import (
 	"path/filepath"
 	"sync"
 	"flag"
-	"github.com/koshigoe/exercise-go-programming-blueprints/chapter1/trace"
-	"os"
 )
 
 type templateHandler struct {
@@ -29,7 +27,6 @@ func main() {
 	var addr = flag.String("addr", ":8080", "アプリケーションのアドレス")
 	flag.Parse() // フラグを解釈します
 	r := newRoom()
-	r.tracer = trace.New(os.Stdout)
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 
