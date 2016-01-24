@@ -16,6 +16,13 @@ import (
 	"github.com/stretchr/objx"
 )
 
+// 現在アクティブな Avatar の実装
+var avatars Avatar = TryAvatars{
+	UseFileSystemAvatar,
+	UseAuthAvatar,
+	UseGravatar,
+}
+
 type templateHandler struct {
 	once     sync.Once
 	filename string
@@ -46,7 +53,7 @@ func main() {
 		github.New(os.Getenv("GITHUB_APP_ID"), os.Getenv("GITHUB_APP_SECRET"), "http://localhost:8080/auth/callback/github"),
 		google.New(os.Getenv("GOOGLE_APP_ID"), os.Getenv("GOOGLE_APP_SECRET"), "http://localhost:8080/auth/callback/google"),
 	)
-	r := newRoom(UseFileSystemAvatar)
+	r := newRoom()
 	http.Handle("/chat", MustAuth(&templateHandler{filename: "chat.html"}))
 	http.Handle("/login", &templateHandler{filename: "login.html"})
 	http.HandleFunc("/auth/", loginHandler)
