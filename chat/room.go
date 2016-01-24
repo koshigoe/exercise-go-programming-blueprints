@@ -19,6 +19,8 @@ type room struct {
 	clients map[*client]bool
 	// tracer はチャットルーム上で行われた操作のログを受け取ります。
 	tracer trace.Tracer
+	// avatar はアバターの情報を取得します。
+	avatar Avatar
 }
 
 func (r *room) run() {
