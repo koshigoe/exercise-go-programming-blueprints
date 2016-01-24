@@ -61,6 +61,7 @@ func main() {
 		w.WriteHeader(http.StatusTemporaryRedirect)
 	})
 	http.Handle("/room", r)
+	http.Handle("/upload", &templateHandler{filename: "upload.html"})
 
 	// チャットルームを開始します
 	go r.run()
