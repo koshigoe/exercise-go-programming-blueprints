@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"github.com/gorilla/websocket"
-	"github.com/koshigoe/exercise-go-programming-blueprints/chapter1/trace"
+	"github.com/koshigoe/exercise-go-programming-blueprints/trace"
 )
 
 type room struct {
