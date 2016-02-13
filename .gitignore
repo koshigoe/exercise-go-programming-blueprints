@@ -31,3 +31,5 @@ _testmain.go
 chat/avatars/*
 
 .envrc
+
+nsqd.84.dat*
