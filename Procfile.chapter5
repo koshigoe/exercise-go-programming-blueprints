@@ -1,0 +1,5 @@
+# $ go get github.com/mattn/goreman
+# $ goreman -f Procfile.chapter5 start
+nsqlookupd: nsqlookupd
+nsqd: nsqd --lookupd-tcp-address=localhost:4160
+mongod: mongod --dbpath ./db
