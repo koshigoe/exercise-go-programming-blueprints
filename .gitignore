@@ -33,3 +33,4 @@ chat/avatars/*
 .envrc
 
 nsqd.84.dat*
+/db
